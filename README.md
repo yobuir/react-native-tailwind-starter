@@ -1,50 +1,85 @@
-# Welcome to your Expo app 👋
+# React Native Tailwind Starter 🚀
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native starter template with Expo and Tailwind CSS (NativeWind) pre-configured and ready to use.
 
-## Get started
+## Features ✨
 
-1. Install dependencies
+- ⚡️ **Expo Router** - File-based routing for React Native
+- 🎨 **Tailwind CSS** - Utility-first CSS framework via NativeWind
+- 📱 **Cross-platform** - iOS, Android, and Web support
+- 🌙 **Dark mode** - Built-in dark mode support
+- 📦 **TypeScript** - Full TypeScript support
+- 🔥 **Hot reload** - Fast development experience
+
+## Quick Start
+
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. **Start the development server**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Open the app**
+   - Press `i` for iOS simulator
+   - Press `a` for Android emulator  
+   - Press `w` for web browser
+   - Scan QR code with Expo Go app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Tailwind CSS Usage
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+This starter comes with NativeWind pre-configured. You can use Tailwind classes directly in your components:
 
-## Get a fresh project
+```tsx
+import { View, Text } from 'react-native';
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+export function MyComponent() {
+  return (
+    <View className="flex-1 items-center justify-center bg-blue-100">
+      <Text className="text-xl font-bold text-gray-800">
+        Hello Tailwind!
+      </Text>
+    </View>
+  );
+}
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Project Structure
 
-## Learn more
+```
+├── app/                    # App screens (Expo Router)
+├── components/            # Reusable components
+├── constants/            # App constants and themes
+├── hooks/               # Custom React hooks
+├── assets/              # Images, fonts, etc.
+├── global.css          # Tailwind CSS directives
+├── tailwind.config.js  # Tailwind configuration
+└── metro.config.js     # Metro bundler config
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Configuration Files
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- `tailwind.config.js` - Tailwind CSS configuration
+- `babel.config.js` - Babel configuration with NativeWind
+- `metro.config.js` - Metro bundler with CSS processing
+- `global.css` - Global Tailwind CSS directives
 
-## Join the community
+## Learn More
 
-Join our community of developers creating universal apps.
+- 📚 [Expo Documentation](https://docs.expo.dev/)
+- 🎨 [NativeWind Documentation](https://www.nativewind.dev/)
+- 🎯 [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- 🗂️ [Expo Router Documentation](https://docs.expo.dev/router/introduction/)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

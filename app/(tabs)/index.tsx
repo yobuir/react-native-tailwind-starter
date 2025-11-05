@@ -1,98 +1,62 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
 import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { Image } from 'expo-image';
 import { Link } from 'expo-router';
+import { ScrollView, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    <ScrollView className="flex-1 bg-gray-50 dark:bg-gray-900">
+      {/* Header Section */}
+      <View className="h-64 bg-gradient-to-b from-blue-400 to-blue-600 items-center justify-center">
         <Image
           source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          className="absolute bottom-0 left-0 h-44 w-72"
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+      </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      {/* Content */}
+      <View className="p-8 gap-4">
+        <View className="flex-row items-center gap-2">
+          <Text className="text-3xl font-bold text-gray-800 dark:text-gray-200">Welcome!</Text>
+          <HelloWave />
+        </View>
+
+        <View className="gap-2 mb-2">
+          <Text className="text-xl font-bold text-gray-800 dark:text-gray-200">Step 1: Try it</Text>
+          <Text className="text-base text-gray-600 dark:text-gray-400">
+            Edit <Text className="font-semibold">app/(tabs)/index.tsx</Text> to see changes.
+            Press <Text className="font-semibold">cmd + d</Text> to open developer tools.
+          </Text>
+        </View>
+
+        <View className="gap-2 mb-2">
+          <Link href="/modal" className="mb-4">
+            <Text className="text-xl font-bold text-blue-600">Step 2: Explore</Text>
+          </Link>
+          <Text className="text-base text-gray-600 dark:text-gray-400">
+            Tap the Explore tab to learn more about what's included in this starter app.
+          </Text>
+        </View>
+
+        <View className="gap-2 mb-2">
+          <Text className="text-xl font-bold text-gray-800 dark:text-gray-200">Step 3: Get a fresh start</Text>
+          <Text className="text-base text-gray-600 dark:text-gray-400">
+            When you're ready, run <Text className="font-semibold">npm run reset-project</Text> to get a fresh{' '}
+            <Text className="font-semibold">app</Text> directory. This will move the current{' '}
+            <Text className="font-semibold">app</Text> to{' '}
+            <Text className="font-semibold">app-example</Text>.
+          </Text>
+        </View>
+
+        <View className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mt-4">
+          <Text className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+            🎉 Tailwind CSS Ready!
+          </Text>
+          <Text className="text-gray-600 dark:text-gray-400">
+            All components have been converted to use Tailwind CSS. No more StyleSheet imports needed!
+          </Text>
+        </View>
+      </View>
+    </ScrollView>
   );
-}
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+} 
